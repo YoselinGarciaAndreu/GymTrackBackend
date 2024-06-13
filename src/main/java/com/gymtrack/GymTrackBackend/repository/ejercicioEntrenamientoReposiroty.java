@@ -12,7 +12,7 @@ import com.gymtrack.GymTrackBackend.model.ejercicioEntrenamiento;
 public interface ejercicioEntrenamientoReposiroty extends JpaRepository<ejercicioEntrenamiento, EjercicioEntrenamientoId>{
 
 
-    @Query("SELECT ee FROM ejercicioEntrenamiento ee JOIN ee.entrenamiento e WHERE ee.id.rutinaID = :rutinaID")
+    @Query("SELECT ee FROM ejercicioEntrenamiento ee JOIN ee.entrenamiento e WHERE ee.id.rutinaID = :rutinaID ORDER BY ee.entrenamiento.entrenamientoID DESC")
     List<ejercicioEntrenamiento> findByRutina(@Param("rutinaID") Long rutinaID);
 
 }
